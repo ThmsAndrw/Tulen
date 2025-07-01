@@ -1,0 +1,279 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+    text-decoration: none;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    height: 100vh;
+}
+
+.header-closed {
+    display: grid;
+    grid-template-rows: 90px 1fr;
+    position: relative;
+    transition: 0.3s;
+    
+}
+
+.header-closed>svg {
+    width: 90px;
+    height: 90px;
+    padding: 25px;
+    background-color: #0f0f0f;
+    fill: white;
+    position: fixed;
+    top: 0;
+}
+
+.header-closed>div {
+    display: flex;
+    width: 90px;
+    height: 91vh;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 90px;
+    left: 0;
+}
+
+.header-closed>div ul {
+    list-style: none;
+}
+
+.header-closed>div ul li+li {
+    margin-top: 50px;
+}
+
+.header-closed>div ul li svg {
+    fill: #0f0f0f;
+    width: 18px;
+    height: 18px;
+
+}
+
+input {
+    width: 90px;
+    height: 90px;
+    top: 0;
+    left: 0;
+    position: fixed;
+    opacity: 0;
+    z-index: 99999999;
+    cursor: pointer;
+}
+
+input:checked~.header-open {
+    left: 0;
+    opacity: 1;
+}
+
+input:checked~.header-closed {
+    transform: translateX(-90px);
+}
+
+.header-open {
+    position: fixed;
+    left: -270px;
+    height: 100vh;
+    width: 270px;
+    z-index: 99999;
+    opacity: 0.5;
+    transition: 0.3s;
+    background-color: white;
+}
+
+.header-open .content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.header-open .content .top {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    grid-template-rows: 90px;
+}
+
+.header-open .content .top .arrow svg {
+    width: 90px;
+    height: 90px;
+    padding: 30px;
+    background-color: #0f0f0f;
+    fill: white;
+}
+
+.header-open .content .top .tulen {
+    background-color: #2916e0;
+    position: relative;
+}
+
+.header-open .content .top .tulen a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.header-open .content .top .tulen img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header-open .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header-open .content .pages ul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    text-align: center;
+}
+
+.header-open .content .pages ul li a {
+    color: #b2b2b2;
+    font-size: 30px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.header-open .content .pages ul li #open-page {
+    color: #2916e0;
+}
+
+.header-open .content .pages ul li a:hover {
+    color: #2916e0;
+}
+
+.header-open .content .pages ul li+li {
+    margin-top: 30px;
+}
+
+.header-open .content .bottom {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    text-align: center;
+    color: #636363;
+    margin-bottom: 60px;
+}
+
+.header-open .content .bottom .websites {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 19px;
+}
+
+.header-open .content .bottom .websites svg {
+    width: 18px;
+    height: 18px;
+    fill: #b2b2b2;
+}
+
+.header-open .content .bottom .copyright p {
+    line-height: 1.7;
+}
+
+.header-open .content .bottom .copyright svg {
+    width: 16px;
+    height: 16px;
+    fill: #e21010;
+}
+
+.header-open .content .bottom .copyright a {
+    color: #b2b2b2;
+}
+
+.header-open .content .bottom .copyright a:hover {
+    color: #2916e0;
+}
+
+#main{
+    display: grid;
+    grid-template-rows: 90px 1fr;
+}
+
+#main .cabecalho{
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    top: 0;
+    z-index: 99;
+    padding-left: 210px;
+    padding-right: 174px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#main .cabecalho .list{
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 18px;
+}
+
+#main .cabecalho .list a{
+    color: black;
+    font-weight: 500;
+}
+
+#main .cabecalho .list #selected{
+    color: #2916e0;
+    font-weight: 600;
+}
+
+#main .gallery{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(4,1fr);
+    gap: 0.8%;
+}
+
+#main .gallery img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#main .gallery>div{
+    position: relative;
+}
+
+#main .gallery #guria{
+    grid-column: 1/3;
+    grid-row: 1/3;
+}
+
+#main .gallery #pimentao{
+    grid-column: 5;
+    grid-row: 1/3;
+}
+
+#main .gallery #calango{
+    grid-row: 3;
+    grid-column: 1/3;
+}
+
+#main .gallery #deque{
+    grid-row: 2/4;
+    grid-column: 3/5;
+}
+
+#main .gallery #ilha{
+    grid-column: 3/5;
+}
